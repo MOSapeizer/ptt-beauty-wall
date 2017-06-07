@@ -1,0 +1,27 @@
+image: hoxhunt/gitlab-ci-gcp
+
+before_script:
+  - export CLOUDSDK_CORE_DISABLE_PROMPTS=1
+  - export CLOUDSDK_PYTHON_SITEPACKAGES=1
+
+stages:
+  - build
+  - test
+  - deploy
+
+build_job:
+  stage: build
+  script:
+    - sh ./scripts/build.sh
+
+test_job:
+  stage: test
+  script:
+    - sh ./scripts/unitest.sh
+
+deploy_job:
+  stage: deploy
+  only:
+    - master
+  script:
+    - sh ./scripts/gcp_deploy.sh
