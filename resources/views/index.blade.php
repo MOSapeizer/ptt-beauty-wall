@@ -19,6 +19,34 @@
                 background-color: #566;
             }
 
+            .card {
+                display: inline-flex;
+                flex-direction: column;
+                overflow: hidden;
+                max-width: 280px;
+                margin: 40px auto 20px;
+            }
+
+            .card-style {
+                background-color: white;
+                border-radius: 4px;
+                color: #636b6f;
+                text-decoration: none;
+            }
+
+            .card-hover-animation {
+                -webkit-transition: box-shadow 0.5s;
+                -moz-transition: box-shadow 0.5s;
+                -ms-transition: box-shadow 0.5s;
+                -o-transition: box-shadow 0.5s;
+                transition: box-shadow 0.5s;
+                box-shadow: 1px 1px 1px darkslategray;
+            }
+
+            .card-hover-animation:hover {
+                box-shadow: 4px 8px 8px darkslategray;
+            }
+
             .container {
                 display: flex;
                 flex-wrap: wrap;
@@ -26,14 +54,13 @@
                 justify-content: space-between;
             }
 
-            .card {
-                display: inline-flex;
-                overflow: hidden;
-                max-width: 280px;
-                margin: 40px auto 20px;
-                background-color: white;
-                flex-direction: column;
-                border-radius: 4px;
+            .card:active, .card:visited {
+                background-color: #855;
+            }
+
+            .card:active .card-title,
+            .card:visited .card-title{
+                color: white;
             }
 
             .card-title {
@@ -61,13 +88,13 @@
                 let $container = document.querySelector('.container');
 
                 function generate_card(url, image, title) {
-                    return `<div class="card">
-                              <a href="${url}" class="card-content">
+                    return `<a href="${url}" target="_blank" class="card card-style card-hover-animation">
+                              <div class="card-content">
                                 <img class="card-image" src="${image}" alt="" />
-                              </a>
+                              </div>
 
                               <p class="card-title">${title}</p>
-                          </div>`
+                            </a>`
                 }
 
                 fetch(url)
