@@ -12,5 +12,11 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('index');
+});
+
+Route::get('/data', function() {
+    $path = storage_path() . "/json/data.json"; // ie: /var/www/laravel/app/storage/json/filename.json
+    $json = json_decode(file_get_contents($path), true);
+    return $json;
 });
