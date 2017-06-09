@@ -43,7 +43,8 @@
             "php artisan optimize"
         ],
         "post-deploy-cmd": [
-            "chmod -R 755 bootstrap\/cache"
+            "chmod -R 755 bootstrap\/cache",
+            "php artisan cache:clear"
         ]
     },
     "config": {

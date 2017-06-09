@@ -2,8 +2,66 @@
 // Fonts
 @import url("https://fonts.googleapis.com/css?family=Raleway:300,400,600");
 
-// Variables
-@import "variables";
+html, body {
+  color: #636b6f;
+  font-family: 'Raleway', sans-serif;
+  background-color: #566;
+}
 
-// Bootstrap
-@import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.card {
+  display: inline-flex;
+  flex-direction: column;
+  overflow: hidden;
+  max-width: 280px;
+  margin: 40px auto 20px;
+
+  &-style {
+    background-color: white;
+    border-radius: 4px;
+    color: #636b6f;
+    text-decoration: none;
+  }
+
+  &:active, &:visited {
+    background-color: #855;
+  }
+
+  &:active &-title,
+  &:visited &-title{
+    color: white;
+  }
+
+  .card-title {
+    word-wrap: break-word;
+    padding: 5px 10px;
+  }
+
+  .card-content .card-image {
+    width: 100%;
+    height: auto;
+    overflow: auto;
+    overflow-wrap: break-word;
+    background-color: gray;
+  }
+
+}
+
+.card-hover-animation {
+  -webkit-transition: box-shadow 0.5s;
+  -moz-transition: box-shadow 0.5s;
+  -ms-transition: box-shadow 0.5s;
+  -o-transition: box-shadow 0.5s;
+  transition: box-shadow 0.5s;
+  box-shadow: 1px 1px 1px darkslategray;
+
+  &:hover {
+    box-shadow: 4px 8px 8px darkslategray;
+  }
+}
